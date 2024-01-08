@@ -9,5 +9,10 @@ export class HeaderComponent {
 
   title = 'Task Tracker';
 
+  toggleAddTask() {
+    console.log("Toggle");
+    
+  }
+
 }
 
