@@ -18,4 +18,12 @@ export class TasksComponent {
     this.taskService.getTask().subscribe((tasks:Task[])=> this.tasks = tasks);
   }
 
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task).subscribe(
+      () => this.tasks = this.tasks.filter(
+        (t) => t.id !== task.id));
+  }
+
+
+
 }

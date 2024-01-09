@@ -17,6 +17,15 @@ export class TaskService {
     return this.http.get<Task[]>(this.apiUrl);
   }
 
+  // deleteTask(task: Task): Observable<Task> {
+  //   const url = `${this.apiUrl}/${task.id}`;
+  //   return this.http.delete<Task>(url);
+  // }
+
+  deleteTask(task: Task): Observable<Task> {
+    const url = `${this.apiUrl}/${task.id}`;
+    return this.http.delete<Task>(url);
+  }
   
 
 }
