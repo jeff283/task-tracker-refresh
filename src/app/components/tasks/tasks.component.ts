@@ -14,15 +14,21 @@ export class TasksComponent {
   constructor(private taskService:TaskService) {}
 
   ngOnInit(): void {
-    // this.tasks = this.taskService.getTask();
     this.taskService.getTask().subscribe((tasks:Task[])=> this.tasks = tasks);
   }
 
-  deleteTask(task: Task) {
+  deleteTask(task: Task): void {
     this.taskService.deleteTask(task).subscribe(
       () => this.tasks = this.tasks.filter(
         (t) => t.id !== task.id));
   }
+
+  toggleReminder(task:Task): void {
+    task.reminder = !task.reminder;
+    this.taskService.updateTaskReminder(task).subscribe();
+  }
+
+  
 
 
 
